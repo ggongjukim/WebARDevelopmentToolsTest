@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Unity WebGL Player | WebARunityNew</title>
+  <meta name="description" content="">
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/UnityProgress.js"></script>
+  <script src="Build/UnityLoader.js"></script>
+  <script>
+    UnityLoader.compatibilityCheck = function (unityInstance, onsuccess, onerror) {
+      if (!UnityLoader.SystemInfo.hasWebGL) {
+        unityInstance.popup('Your browser does not support WebGL',
+          [{ text: 'OK', callback: onerror }]);
+      } else {
+        onsuccess();
+      }
+    }
+
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/buildcameraarL7.json", { onProgress: UnityProgress });
+    </script>
+  </head>
+  
+  <body>
+  
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <button class="entervr" id="entervr" value="Enter VR" disabled>VR</button>
+        <button class="enterar" id="enterar" value="Enter AR" disabled>AR</button>
+        <div class="webxr-link">Using <a href="https://github.com/De-Panther/unity-webxr-export" target="_blank"
+            title="WebXR Export">WebXR Export</a></div>
+        <div class="title" id="fps-text">WebARunityNew</div>
+      </div>
+    </div>
+  
+    <script>
+      window.onload = function () {
+
+        setTimeout(function () {
+
+          // var t = performance.timing.loadEventEnd - performance.timing.responseEnd;
+          var now = new Date().getTime();
+          var page_load_time = now - performance.timing.navigationStart;
+          // infostatus.innerHTML = "website-loading-time";
+          // infotime.innerHTML = page_load_time + 'ms';
+          console.log("website-loading-time", page_load_time + 'ms');
+
+
+        }, 0);
+
+      }
+
+      var before, now, fps;
+      var resultfps = "";
+      let frame = 0;
+      const fpstext = document.getElementById("fps-text");
+      before = Date.now();
+      fps = 0;
+
+      requestAnimationFrame(
+        function loop() {
+          now = Date.now();
+          var diff = now - before;
+          frame += 1;
+          if (diff > 1000) {
+            fps = frame;
+            before = now;
+            fpstext.innerHTML = "FPS:" + fps;
+            resultfps = resultfps + fps + ",";
+            fps = 0;
+            frame = 0;
+          }
+          requestAnimationFrame(loop);
+
+        }
+
+      );
+      var anchorLoadingStart,anchorLoadingEnd, modelLoadingStart, modelLoadingEnd;
+
+      function fpsendJs() {
+        console.log(resultfps);
+      }
+      function modelLoadStartJs() {
+        modelLoadingStart = performance.now();
+        console.log("modelLoadStartJs");
+      }
+      function modelLoadEndJs() {
+        modelLoadingEnd =  performance.now();
+        console.log(modelLoadingEnd - modelLoadingStart + 'ms');
+      }
+      function anchorLoadEndJs() {
+        anchorLoadingEnd = performance.now();
+        console.log(anchorLoadingEnd - anchorLoadingStart + 'ms');
+      }
+
+    </script>
+    <script>
+      let enterARButton = document.getElementById('enterar');
+      let enterVRButton = document.getElementById('entervr');
+
+      document.addEventListener('onARSupportedCheck', function (event) {
+        enterARButton.disabled = !event.detail.supported;
+      }, false);
+      document.addEventListener('onVRSupportedCheck', function (event) {
+        enterVRButton.disabled = !event.detail.supported;
+      }, false);
+
+      enterARButton.addEventListener('click', function (event) {
+
+        unityInstance.Module.WebXR.toggleAR();
+        anchorLoadingStart = performance.now();
+
+      }, false);
+      enterVRButton.addEventListener('click', function (event) {
+        unityInstance.Module.WebXR.toggleVR();
+
+      }, false);
+    </script>
+</body>
+
+</html>

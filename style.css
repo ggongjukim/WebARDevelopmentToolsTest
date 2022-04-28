@@ -1,0 +1,62 @@
+body {
+    padding: 0;
+    font-size:22px;
+    background:#FFAEDF;
+    font-family: 'Roboto', sans-serif;
+}
+#notice{
+    text-align: center;
+    padding: 20px;
+    padding-left: 0;
+    padding-right: 0;
+}
+ul#navi{
+  list-style-type: none;
+  margin:0;
+  padding: 0;
+}
+ul li {
+    margin-bottom: 20px;
+    cursor:pointer;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+
+
+
+ul li#WebXRDevcieAPI{
+    background:#64FFB5;
+}
+ul li#EightthWall{
+    background:#64F6FF;
+}
+ul li#Onirix{
+    background:#7EBFFC;
+}
+ul li#Blippar{
+    background:#9969FF;
+}
+ul li#Zappar{
+    background:#FF6969;
+}
+ul li#Unity{
+    background:#FEF86D;
+    line-height: normal;
+}
+ul li#Unity div{
+    padding:5px;
+}
+ul li#Wonderland{
+    background:#6DFE7B;
+}
+
+ul li div div.listText{
+    font-size:24px;
+    font-weight: bold;
+    
+}
+a{
+    text-decoration-line: none;
+    color: #000000;
+}

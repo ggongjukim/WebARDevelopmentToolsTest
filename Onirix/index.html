@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+        <title>Onirix test</title>
+        <script async type="module" src="app.js"></script>
+        <!-- <script src="fps.js"></script> -->
+
+        <link rel="stylesheet" href="app.css" />
+        <link rel="stylesheet" href="../init.css" />
+
+    </head>
+    <body>
+        <script>
+            (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='//mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+        </script>
+        <div id="loading-screen">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+        <div id="error-screen">
+            <span id="error-title"></span>
+            <span id="error-message"></span>
+        </div>
+        <div id="initializing"></div>
+        
+        <div id="loading" style="display: none; background-color: aqua;"><h2>Model Loading...</h2></div>
+
+        <div id="test-info">
+            <div id="box" class="Onirix">
+                <div>Onirix</div>
+                <div id="status">---</div>
+                <div id="total-time">00ms</div>
+                <div id="fps-text">FPS:</div>
+            </div>
+            <div id="fpsbutton" class="Onirix">fps end</div>
+        </div>
+        <div id="transform-controls" >
+            <button id="tap-to-place" value="placeModel" class="Onirix">tap-to-place</button>
+        </div>
+
+    </body>
+</html>

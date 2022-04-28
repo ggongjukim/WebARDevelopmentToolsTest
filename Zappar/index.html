@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- USE A MOBILE APPROPRIATE VIEWPORT SETTING SO THE UI APPEARS THE RIGHT SIZE -->
+    <meta name="viewport" content="width=device-width,user-scalable=no,minimal-ui" />
+
+    <title>깃허브 Zappar for ThreeJS</title>
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script> -->
+<!-- <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script> -->
+<script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
+<script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src='https://libs.zappar.com/zappar-threejs/0.3.40/zappar-threejs.js'></script>
+<link rel='stylesheet' type='text/css' href='style.css'>
+<link rel="stylesheet" href="../init.css" />
+
+
+</head>
+
+<body>
+    <!-- <div id="zappar-placement-ui">Tap here to place the object</div> -->
+    <div id="initializing"></div>
+
+    <div id="test-info">
+        <div id="box" class="Zappar">
+            <div>Zappar</div>
+            <div id="status">---</div>
+            <div id="total-time">00ms</div>
+            <div id="fps-text">FPS:</div>
+        </div>
+        <div id="fpsbutton" class="Zappar">fps end</div>
+    </div>
+    <div id="transform-controls" >
+        <button id="tap-to-place" value="placeModel" class="Zappar">tap-to-place</button>
+    </div>
+    <script type="module" src="index.js"></script>
+
+</body>
+
+</html>
