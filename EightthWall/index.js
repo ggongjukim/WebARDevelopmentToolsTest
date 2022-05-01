@@ -143,7 +143,7 @@ const placegroundScenePipelineModule = () => {
     const intersects = raycaster.intersectObject(surface)
     if (intersects.length === 1 && intersects[0].object === surface ) {
       if(!isModel){
-        console.log("hittest중 hittest결과 있음");
+        console.log("hittest중 hittest결과 있음!!");
         reticle.position.set(intersects[0].point.x,0.0, intersects[0].point.z)
       }
       if(!firstAnchor){
