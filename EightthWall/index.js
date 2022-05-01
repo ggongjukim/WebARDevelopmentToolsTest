@@ -92,8 +92,8 @@ const placegroundScenePipelineModule = () => {
     reticle.position.copy(reticle.position);
     ThreeDModel.position.copy(reticle.position);
     modelLoadingEnd = performance.now();
-    infostatus.innerHTML =  "model-loading";
-    infotime.innerHTML = modelLoadingEnd-modelLoadingStart+ 'ms';
+    // infostatus.innerHTML =  "model-loading";
+    // infotime.innerHTML = modelLoadingEnd-modelLoadingStart+ 'ms';
   }
 
   // const placeObjectTouchHandler = (e) => {
@@ -140,9 +140,9 @@ const placegroundScenePipelineModule = () => {
       console.log("hittest중 hittest결과 있음");
       reticle.position.set(intersects[0].point.x,0.0, intersects[0].point.z)
       if(!firstAnchor){
-        infostatus.innerHTML =  "anchor-loading";
+        // infostatus.innerHTML =  "anchor-loading";
         anchorLoadingEnd = performance.now();
-        infotime.innerHTML = anchorLoadingEnd-anchorLoadingStart+ 'ms';
+        // infotime.innerHTML = anchorLoadingEnd-anchorLoadingStart+ 'ms';
         firstAnchor=true;
     }
     }
@@ -157,8 +157,8 @@ const placegroundScenePipelineModule = () => {
     // XR8.Threejs.pipelineModule()'s onStart method.
     onStart: ({canvas}) => {
       anchorLoadingStart = performance.now();
-      infotime.innerHTML= '00ms';
-      infostatus.innerHTML = "---";
+      // infotime.innerHTML= '00ms';
+      // infostatus.innerHTML = "---";
 
       const {scene, camera, renderer} = XR8.Threejs.xrScene()  // Get the 3js sceen from xr3js.
 
