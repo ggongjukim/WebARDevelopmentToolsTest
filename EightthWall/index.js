@@ -4,12 +4,59 @@
 // handles subsequent spawning of a glb model whenever the scene is tapped.
 
 /* globals XR8 XRExtras THREE TWEEN */
-// const infotime = document.getElementById("total-time");
-// const infostatus = document.getElementById("status");
-var anchorLoadingStart, anchorLoadingEnd, modelLoadingStart, modelLoadingEnd;
 
+var anchorLoadingStart, anchorLoadingEnd, modelLoadingStart, modelLoadingEnd;
+const infotime = document.getElementById("total-time");
+const infostatus = document.getElementById("status");
+// console.dir(infostatus);
+
+window.onload = function () {
+
+  setTimeout(function () {
+
+    // var t = performance.timing.loadEventEnd - performance.timing.responseEnd;
+    var now = new Date().getTime();
+    var page_load_time = now - performance.timing.navigationStart;
+    infostatus.innerHTML = "website-loading-time";
+    infotime.innerHTML = page_load_time + 'ms';
+
+
+  }, 0);
+
+}
+//frame 세기
+
+var before, now, fps;
+var resultfps = "";
+
+let frame = 0;
+const fpstext = document.getElementById("fps-text");
+before = Date.now();
+fps = 0;
+
+requestAnimationFrame(
+  function loop() {
+    now = Date.now();
+    var diff = now - before;
+    frame += 1;
+    if (diff > 1000) {
+      fps = frame;
+      before = now;
+      fpstext.innerHTML = "FPS:" + fps;
+      resultfps = resultfps + fps + ",";
+      fps = 0;
+      frame = 0;
+    }
+    requestAnimationFrame(loop);
+
+  }
+
+);
+document.getElementById("fpsbutton").addEventListener('click', () => { // 놓는 버튼
+  console.log(resultfps)
+});
 const placegroundScenePipelineModule = () => {
-  var reticle,ThreeDModel;
+  var reticle, ThreeDModel;
   var firstAnchor = false;
   var isModel = false;
   const modelFile = '../reticle2D.glb'                            // 3D model to spawn at tap
@@ -25,7 +72,7 @@ const placegroundScenePipelineModule = () => {
 
   // Populates some object into an XR scene and sets the initial camera position. The scene and
   // camera come from xr3js, and are only available in the camera loop lifecycle onStart() or later.
-  const initXrScene = ({scene, camera, renderer}) => {
+  const initXrScene = ({ scene, camera, renderer }) => {
     renderer.shadowMap.enabled = true
     renderer.shadowMap.type = THREE.PCFSoftShadowMap
 
@@ -59,7 +106,7 @@ const placegroundScenePipelineModule = () => {
   }
 
   const animateIn = (model, pointX, pointZ, yDegrees) => {
-    const scale = {...startScale}
+    const scale = { ...startScale }
 
     model.scene.rotation.set(0.0, yDegrees, 0.0)
     model.scene.position.set(pointX, 0.0, pointZ)
@@ -90,12 +137,12 @@ const placegroundScenePipelineModule = () => {
     )
   }
   const placemodel = () => {
-    if(!isModel){
+    if (!isModel) {
       XR8.Threejs.xrScene().scene.add(ThreeDModel);
       reticle.position.copy(reticle.position);
       ThreeDModel.position.copy(reticle.position);
       modelLoadingEnd = performance.now();
-      isModel=true;
+      isModel = true;
     }
 
     // infostatus.innerHTML =  "model-loading";
@@ -136,22 +183,22 @@ const placegroundScenePipelineModule = () => {
     const { camera } = XR8.Threejs.xrScene()
 
     // calculate tap position in normalized device coordinates (-1 to +1) for both components.
-    tapPosition.x = 0 
+    tapPosition.x = 0
     tapPosition.y = 0
     raycaster.setFromCamera(tapPosition, camera)
 
     const intersects = raycaster.intersectObject(surface)
-    if (intersects.length === 1 && intersects[0].object === surface ) {
-      if(!isModel){
-        console.log("hittest중 hittest결과 있음!!");
-        reticle.position.set(intersects[0].point.x,0.0, intersects[0].point.z)
+    if (intersects.length === 1 && intersects[0].object === surface) {
+      if (!isModel) {
+        console.log("hittest중 hittest결과 있음!!!");
+        reticle.position.set(intersects[0].point.x, 0.0, intersects[0].point.z)
       }
-      if(!firstAnchor){
+      if (!firstAnchor) {
         // infostatus.innerHTML =  "anchor-loading";
         anchorLoadingEnd = performance.now();
         // infotime.innerHTML = anchorLoadingEnd-anchorLoadingStart+ 'ms';
-        firstAnchor=true;
-    }
+        firstAnchor = true;
+      }
     }
 
   }
@@ -162,15 +209,15 @@ const placegroundScenePipelineModule = () => {
     // onStart is called once when the camera feed begins. In this case, we need to wait for the
     // XR8.Threejs scene to be ready before we can access it to add content. It was created in
     // XR8.Threejs.pipelineModule()'s onStart method.
-    onStart: ({canvas}) => {
+    onStart: ({ canvas }) => {
       anchorLoadingStart = performance.now();
       // infotime.innerHTML= '00ms';
       // infostatus.innerHTML = "---";
 
-      const {scene, camera, renderer} = XR8.Threejs.xrScene()  // Get the 3js sceen from xr3js.
+      const { scene, camera, renderer } = XR8.Threejs.xrScene()  // Get the 3js sceen from xr3js.
 
       // Add objects to the scene and set starting camera position.
-      initXrScene({scene, camera, renderer})
+      initXrScene({ scene, camera, renderer })
 
       // canvas.addEventListener('touchstart', placeObjectTouchHandler, true)  // Add touch listener.
 
@@ -186,7 +233,7 @@ const placegroundScenePipelineModule = () => {
         modelLoadingStart = performance.now(); //모델 로드 시작
         // infotime.innerHTML= '00ms';
         placemodel();
-    });
+      });
       loader.load(
         "../reticle2D.glb",  // resource URL.
         (gltf) => {
@@ -233,9 +280,9 @@ const onxrloaded = () => {
   ])
 
   // Open the camera and start running the camera run loop.
-  XR8.run({canvas: document.getElementById('camerafeed')})
+  XR8.run({ canvas: document.getElementById('camerafeed') })
 }
 
 // Show loading screen before the full XR library has been loaded.
-const load = () => { XRExtras.Loading.showLoading({onxrloaded}) }
+const load = () => { XRExtras.Loading.showLoading({ onxrloaded }) }
 window.onload = () => { window.XRExtras ? load() : window.addEventListener('xrextrasloaded', load) }
