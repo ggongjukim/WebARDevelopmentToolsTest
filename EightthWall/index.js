@@ -4,9 +4,13 @@
 // handles subsequent spawning of a glb model whenever the scene is tapped.
 
 /* globals XR8 XRExtras THREE TWEEN */
+const infotime = document.getElementById("total-time");
+const infostatus = document.getElementById("status");
+var anchorLoadingStart, anchorLoadingEnd, modelLoadingStart, modelLoadingEnd;
 
 const placegroundScenePipelineModule = () => {
-  var reticle;
+  var reticle,ThreeDModel;
+  const firstAnchor = false;
   const modelFile = '../reticle2D.glb'                            // 3D model to spawn at tap
   const startScale = new THREE.Vector3(0.01, 0.01, 0.01)  // Initial scale value for our model
   const endScale = new THREE.Vector3(0.002, 0.002, 0.002)             // Ending scale value for our model
@@ -84,37 +88,43 @@ const placegroundScenePipelineModule = () => {
       }
     )
   }
-
-  const placeObjectTouchHandler = (e) => {
-    // Call XrController.recenter() when the canvas is tapped with two fingers. This resets the
-    // AR camera to the position specified by XrController.updateCameraProjectionMatrix() above.
-    if (e.touches.length === 2) {
-      XR8.XrController.recenter()
-    }
-
-    if (e.touches.length > 2) {
-      return
-    }
-
-    // If the canvas is tapped with one finger and hits the "surface", spawn an object.
-    const {camera} = XR8.Threejs.xrScene()
-
-    // calculate tap position in normalized device coordinates (-1 to +1) for both components.
-    tapPosition.x = (e.touches[0].clientX / window.innerWidth) * 2 - 1
-    tapPosition.y = -(e.touches[0].clientY / window.innerHeight) * 2 + 1
-
-    // Update the picking ray with the camera and tap position.
-    raycaster.setFromCamera(tapPosition, camera)
-
-    // Raycast against the "surface" object.
-    const intersects = raycaster.intersectObject(surface)
-
-    if (intersects.length === 1 && intersects[0].object === surface) {
-      placeObject(intersects[0].point.x, intersects[0].point.z)
-    }
+  const placemodel = () => {
+    reticle.position.copy(reticle.position);
+    ThreeDModel.position.copy(reticle.position);
+    modelLoadingEnd = performance.now();
+    infostatus.innerHTML =  "model-loading";
+    infotime.innerHTML = modelLoadingEnd-modelLoadingStart+ 'ms';
   }
+
+  // const placeObjectTouchHandler = (e) => {
+  //   // Call XrController.recenter() when the canvas is tapped with two fingers. This resets the
+  //   // AR camera to the position specified by XrController.updateCameraProjectionMatrix() above.
+  //   if (e.touches.length === 2) {
+  //     XR8.XrController.recenter()
+  //   }
+
+  //   if (e.touches.length > 2) {
+  //     return
+  //   }
+
+  //   // If the canvas is tapped with one finger and hits the "surface", spawn an object.
+  //   const {camera} = XR8.Threejs.xrScene()
+
+  //   // calculate tap position in normalized device coordinates (-1 to +1) for both components.
+  //   tapPosition.x = (e.touches[0].clientX / window.innerWidth) * 2 - 1
+  //   tapPosition.y = -(e.touches[0].clientY / window.innerHeight) * 2 + 1
+
+  //   // Update the picking ray with the camera and tap position.
+  //   raycaster.setFromCamera(tapPosition, camera)
+
+  //   // Raycast against the "surface" object.
+  //   const intersects = raycaster.intersectObject(surface)
+
+  //   if (intersects.length === 1 && intersects[0].object === surface) {
+  //     placeObject(intersects[0].point.x, intersects[0].point.z)
+  //   }
+  // }
   const hittest = (time, frame) => {
-    console.log("hittest중1");
     requestAnimationFrame(hittest);
     // If the canvas is tapped with one finger and hits the "surface", spawn an object.
     const { camera } = XR8.Threejs.xrScene()
@@ -127,7 +137,14 @@ const placegroundScenePipelineModule = () => {
     const intersects = raycaster.intersectObject(surface)
     if (intersects.length === 1 && intersects[0].object === surface) {
       // placeObject(intersects[0].point.x, intersects[0].point.z)
+      console.log("hittest중 hittest결과 있음");
       reticle.position.set(intersects[0].point.x,0.0, intersects[0].point.z)
+      if(!firstAnchor){
+        infostatus.innerHTML =  "anchor-loading";
+        anchorLoadingEnd = performance.now();
+        infotime.innerHTML = anchorLoadingEnd-anchorLoadingStart+ 'ms';
+        firstAnchor=true;
+    }
     }
 
   }
@@ -139,6 +156,10 @@ const placegroundScenePipelineModule = () => {
     // XR8.Threejs scene to be ready before we can access it to add content. It was created in
     // XR8.Threejs.pipelineModule()'s onStart method.
     onStart: ({canvas}) => {
+      anchorLoadingStart = performance.now();
+      infotime.innerHTML= '00ms';
+      infostatus.innerHTML = "---";
+      
       const {scene, camera, renderer} = XR8.Threejs.xrScene()  // Get the 3js sceen from xr3js.
 
       // Add objects to the scene and set starting camera position.
@@ -150,17 +171,29 @@ const placegroundScenePipelineModule = () => {
       // canvas.addEventListener('touchmove', (event) => {
       //   event.preventDefault()
       // })
+
       //ggongjukim
-      
       hittest();
+      document.getElementById("transform-controls").style.display = 'block';
+      document.getElementById("tap-to-place").addEventListener('click', () => { // 놓는 버튼
+        modelLoadingStart = performance.now(); //모델 로드 시작
+        infotime.innerHTML= '00ms';
+        placemodel();
+    });
       loader.load(
         "../reticle2D.glb",  // resource URL.
         (gltf) => {
           reticle = gltf.scene;
-          reticle.scale.set(0.2,0.2,0.2);
+          reticle.scale.set(0.2, 0.2, 0.2);
           scene.add(reticle);
         })
-
+      loader.load(
+        "../greenmodel.glb",  // resource URL.
+        (gltf) => {
+          ThreeDModel = gltf.scene;
+          ThreeDModel.scale.set(0.2, 0.2, 0.2);
+          scene.add(ThreeDModel);
+        })
       // Enable TWEEN animations.
       const animate = (time) => {
         requestAnimationFrame(animate)
