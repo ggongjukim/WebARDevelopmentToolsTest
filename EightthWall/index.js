@@ -19,6 +19,7 @@ window.onload = function () {
     var page_load_time = now - performance.timing.navigationStart;
     infostatus.innerHTML = "website-loading-time";
     infotime.innerHTML = page_load_time + 'ms';
+    console.log("website-loading-time",page_load_time);
 
 
   }, 0);
@@ -192,7 +193,7 @@ const placegroundScenePipelineModule = () => {
     const intersects = raycaster.intersectObject(surface)
     if (intersects.length === 1 && intersects[0].object === surface) {
       if (!isModel) {
-        console.log("hittest중 hittest결과 있음!!!");
+        console.log("hittest중 hittest결과 있음");
         reticle.position.set(intersects[0].point.x, 0.0, intersects[0].point.z)
       }
       if (!firstAnchor) {
