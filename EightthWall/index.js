@@ -4,8 +4,8 @@
 // handles subsequent spawning of a glb model whenever the scene is tapped.
 
 /* globals XR8 XRExtras THREE TWEEN */
-const infotime = document.getElementById("total-time");
-const infostatus = document.getElementById("status");
+// const infotime = document.getElementById("total-time");
+// const infostatus = document.getElementById("status");
 var anchorLoadingStart, anchorLoadingEnd, modelLoadingStart, modelLoadingEnd;
 
 const placegroundScenePipelineModule = () => {
@@ -159,7 +159,7 @@ const placegroundScenePipelineModule = () => {
       anchorLoadingStart = performance.now();
       infotime.innerHTML= '00ms';
       infostatus.innerHTML = "---";
-      
+
       const {scene, camera, renderer} = XR8.Threejs.xrScene()  // Get the 3js sceen from xr3js.
 
       // Add objects to the scene and set starting camera position.
