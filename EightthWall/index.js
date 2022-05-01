@@ -4,7 +4,6 @@
 // handles subsequent spawning of a glb model whenever the scene is tapped.
 
 /* globals XR8 XRExtras THREE TWEEN */
-var anchorLoadingStart, anchorLoadingEnd, modelLoadingStart, modelLoadingEnd;
 
 const placegroundScenePipelineModule = () => {
   const modelFile = '../reticle2D.glb'                            // 3D model to spawn at tap
@@ -20,8 +19,6 @@ const placegroundScenePipelineModule = () => {
 
   // Populates some object into an XR scene and sets the initial camera position. The scene and
   // camera come from xr3js, and are only available in the camera loop lifecycle onStart() or later.
-  //일부 개체를 XR 장면에 채우고 초기 카메라 위치를 설정합니다. 
-  //장면과 카메라는 xr3js에서 가져오고 카메라 루프 수명 주기 onStart() 이상에서만 사용할 수 있습니다.
   const initXrScene = ({scene, camera, renderer}) => {
     renderer.shadowMap.enabled = true
     renderer.shadowMap.type = THREE.PCFSoftShadowMap
@@ -61,7 +58,7 @@ const placegroundScenePipelineModule = () => {
     model.scene.rotation.set(0.0, yDegrees, 0.0)
     model.scene.position.set(pointX, 0.0, pointZ)
     model.scene.scale.set(scale.x, scale.y, scale.z)
-    // model.scene.children[0].children[0].children[0].castShadow = true
+    model.scene.children[0].children[0].children[0].castShadow = true
     XR8.Threejs.xrScene().scene.add(model.scene)
 
     new TWEEN.Tween(scale)
@@ -83,7 +80,7 @@ const placegroundScenePipelineModule = () => {
     )
   }
 
-  const placeObjectTouchHandler = (e) => { //핀치랑 스케일 조절 컨트롤 
+  const placeObjectTouchHandler = (e) => {
     // Call XrController.recenter() when the canvas is tapped with two fingers. This resets the
     // AR camera to the position specified by XrController.updateCameraProjectionMatrix() above.
     if (e.touches.length === 2) {
@@ -112,25 +109,6 @@ const placegroundScenePipelineModule = () => {
     }
   }
 
-  const hittest = (time,frame) =>{
-    // console.log("hittest 진행중");
-    requestAnimationFrame(hittest);
-
-    const {camera} = XR8.Threejs.xrScene()
-    tapPosition.x = 0.0;
-    tapPosition.y = 0.0;
-    raycaster.setFromCamera(tapPosition, camera)
-    const intersects = raycaster.intersectObject(surface)
-    if (intersects.length === 1 && intersects[0].object === surface) {
-      placeObject(intersects[0].point.x, intersects[0].point.z)
-      document.getElementById("transform-controls").style.display = 'block';
-
-    }
-    // this.reticle.position.set(hitPose.transform.position.x, hitPose.transform.position.y, hitPose.transform.position.z)
-
-
-  }
-
   return {
     // Pipeline modules need a name. It can be whatever you want but must be unique within your app.
     name: 'placeground',
@@ -150,7 +128,6 @@ const placegroundScenePipelineModule = () => {
       canvas.addEventListener('touchmove', (event) => {
         event.preventDefault()
       })
-      // hittest();
 
       // Enable TWEEN animations.
       const animate = (time) => {
