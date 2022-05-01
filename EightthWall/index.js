@@ -11,6 +11,7 @@ var anchorLoadingStart, anchorLoadingEnd, modelLoadingStart, modelLoadingEnd;
 const placegroundScenePipelineModule = () => {
   var reticle,ThreeDModel;
   var firstAnchor = false;
+  var isModel = false;
   const modelFile = '../reticle2D.glb'                            // 3D model to spawn at tap
   const startScale = new THREE.Vector3(0.01, 0.01, 0.01)  // Initial scale value for our model
   const endScale = new THREE.Vector3(0.002, 0.002, 0.002)             // Ending scale value for our model
@@ -89,9 +90,14 @@ const placegroundScenePipelineModule = () => {
     )
   }
   const placemodel = () => {
-    reticle.position.copy(reticle.position);
-    ThreeDModel.position.copy(reticle.position);
-    modelLoadingEnd = performance.now();
+    if(!isModel){
+      scene.add(ThreeDModel);
+      reticle.position.copy(reticle.position);
+      ThreeDModel.position.copy(reticle.position);
+      modelLoadingEnd = performance.now();
+      isModel=true;
+    }
+
     // infostatus.innerHTML =  "model-loading";
     // infotime.innerHTML = modelLoadingEnd-modelLoadingStart+ 'ms';
   }
@@ -135,7 +141,7 @@ const placegroundScenePipelineModule = () => {
     raycaster.setFromCamera(tapPosition, camera)
 
     const intersects = raycaster.intersectObject(surface)
-    if (intersects.length === 1 && intersects[0].object === surface) {
+    if (intersects.length === 1 && intersects[0].object === surface && !isModel) {
       // placeObject(intersects[0].point.x, intersects[0].point.z)
       console.log("hittest중 hittest결과 있음");
       reticle.position.set(intersects[0].point.x,0.0, intersects[0].point.z)
@@ -192,7 +198,7 @@ const placegroundScenePipelineModule = () => {
         (gltf) => {
           ThreeDModel = gltf.scene;
           ThreeDModel.scale.set(0.02, 0.02, 0.02);
-          scene.add(ThreeDModel);
+          // scene.add(ThreeDModel);
         })
       // Enable TWEEN animations.
       const animate = (time) => {
