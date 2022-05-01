@@ -4,9 +4,10 @@
 // handles subsequent spawning of a glb model whenever the scene is tapped.
 
 /* globals XR8 XRExtras THREE TWEEN */
+var anchorLoadingStart, anchorLoadingEnd, modelLoadingStart, modelLoadingEnd;
 
 const placegroundScenePipelineModule = () => {
-  const modelFile = '../greenmodel.glb'                            // 3D model to spawn at tap
+  const modelFile = '../reticle2D.glb'                            // 3D model to spawn at tap
   const startScale = new THREE.Vector3(0.01, 0.01, 0.01)  // Initial scale value for our model
   const endScale = new THREE.Vector3(2, 2, 2)             // Ending scale value for our model
   const animationMillis = 750                             // Animate over 0.75 seconds
@@ -19,6 +20,8 @@ const placegroundScenePipelineModule = () => {
 
   // Populates some object into an XR scene and sets the initial camera position. The scene and
   // camera come from xr3js, and are only available in the camera loop lifecycle onStart() or later.
+  //일부 개체를 XR 장면에 채우고 초기 카메라 위치를 설정합니다. 
+  //장면과 카메라는 xr3js에서 가져오고 카메라 루프 수명 주기 onStart() 이상에서만 사용할 수 있습니다.
   const initXrScene = ({scene, camera, renderer}) => {
     renderer.shadowMap.enabled = true
     renderer.shadowMap.type = THREE.PCFSoftShadowMap
@@ -80,7 +83,7 @@ const placegroundScenePipelineModule = () => {
     )
   }
 
-  const placeObjectTouchHandler = (e) => {
+  const placeObjectTouchHandler = (e) => { //핀치랑 스케일 조절 컨트롤 
     // Call XrController.recenter() when the canvas is tapped with two fingers. This resets the
     // AR camera to the position specified by XrController.updateCameraProjectionMatrix() above.
     if (e.touches.length === 2) {
@@ -109,6 +112,24 @@ const placegroundScenePipelineModule = () => {
     }
   }
 
+  const hittest = (time,frame) =>{
+    requestAnimationFrame(hittest);
+
+    const {camera} = XR8.Threejs.xrScene()
+    tapPosition.x = 0.0;
+    tapPosition.y = 0.0;
+    raycaster.setFromCamera(tapPosition, camera)
+    const intersects = raycaster.intersectObject(surface)
+    if (intersects.length === 1 && intersects[0].object === surface) {
+      placeObject(intersects[0].point.x, intersects[0].point.z)
+      document.getElementById("transform-controls").style.display = 'block';
+
+    }
+    // this.reticle.position.set(hitPose.transform.position.x, hitPose.transform.position.y, hitPose.transform.position.z)
+
+
+  }
+
   return {
     // Pipeline modules need a name. It can be whatever you want but must be unique within your app.
     name: 'placeground',
@@ -122,12 +143,13 @@ const placegroundScenePipelineModule = () => {
       // Add objects to the scene and set starting camera position.
       initXrScene({scene, camera, renderer})
 
-      canvas.addEventListener('touchstart', placeObjectTouchHandler, true)  // Add touch listener.
+      // canvas.addEventListener('touchstart', placeObjectTouchHandler, true)  // Add touch listener.
 
-      // prevent scroll/pinch gestures on canvas
-      canvas.addEventListener('touchmove', (event) => {
-        event.preventDefault()
-      })
+      // // prevent scroll/pinch gestures on canvas
+      // canvas.addEventListener('touchmove', (event) => {
+      //   event.preventDefault()
+      // })
+      hittest();
 
       // Enable TWEEN animations.
       const animate = (time) => {
