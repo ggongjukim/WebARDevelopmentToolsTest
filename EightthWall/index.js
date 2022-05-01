@@ -6,6 +6,7 @@
 /* globals XR8 XRExtras THREE TWEEN */
 
 const placegroundScenePipelineModule = () => {
+  var reticle;
   const modelFile = '../reticle2D.glb'                            // 3D model to spawn at tap
   const startScale = new THREE.Vector3(0.01, 0.01, 0.01)  // Initial scale value for our model
   const endScale = new THREE.Vector3(0.002, 0.002, 0.002)             // Ending scale value for our model
@@ -125,7 +126,8 @@ const placegroundScenePipelineModule = () => {
 
     const intersects = raycaster.intersectObject(surface)
     if (intersects.length === 1 && intersects[0].object === surface) {
-      placeObject(intersects[0].point.x, intersects[0].point.z)
+      // placeObject(intersects[0].point.x, intersects[0].point.z)
+      reticle.position(intersects[0].point.x,0.0, intersects[0].point.z)
     }
 
   }
@@ -149,7 +151,15 @@ const placegroundScenePipelineModule = () => {
       //   event.preventDefault()
       // })
       //ggongjukim
+      
       hittest();
+      loader.load(
+        "../reticle2D.glb",  // resource URL.
+        (gltf) => {
+          reticle = gltf.scene;
+          reticle.scale.set(0.002,0.002,0.002);
+          scene.add(reticle);
+        })
 
       // Enable TWEEN animations.
       const animate = (time) => {
