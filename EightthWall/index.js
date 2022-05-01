@@ -177,21 +177,21 @@ const placegroundScenePipelineModule = () => {
       document.getElementById("transform-controls").style.display = 'block';
       document.getElementById("tap-to-place").addEventListener('click', () => { // 놓는 버튼
         modelLoadingStart = performance.now(); //모델 로드 시작
-        infotime.innerHTML= '00ms';
+        // infotime.innerHTML= '00ms';
         placemodel();
     });
       loader.load(
         "../reticle2D.glb",  // resource URL.
         (gltf) => {
           reticle = gltf.scene;
-          reticle.scale.set(0.2, 0.2, 0.2);
+          reticle.scale.set(0.02, 0.02, 0.02);
           scene.add(reticle);
         })
       loader.load(
         "../greenmodel.glb",  // resource URL.
         (gltf) => {
           ThreeDModel = gltf.scene;
-          ThreeDModel.scale.set(0.2, 0.2, 0.2);
+          ThreeDModel.scale.set(0.02, 0.02, 0.02);
           scene.add(ThreeDModel);
         })
       // Enable TWEEN animations.
