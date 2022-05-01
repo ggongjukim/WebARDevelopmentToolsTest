@@ -32,7 +32,7 @@ WL.registerComponent('spawn-mesh-on-select', {
          * to the session */
         WL.onXRSessionStart.push(this.onXRSessionStart.bind(this));
         // this.object.rotateObject ([-0.707,0,0,0.707]);
-
+        
         this.object.getComponent('hit-test-location').active = true;
 
 
@@ -77,7 +77,7 @@ WL.registerComponent('spawn-mesh-on-select', {
             mesh.mesh = this.mesh;
             mesh.active = true;
 
-            console.log("탭을 했으요!");
+            console.log("탭을 했습니다!");
             //
             // const vec = o.transformWorld;
             // console.log(o.transformWorld);

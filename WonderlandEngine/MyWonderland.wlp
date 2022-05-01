@@ -1,0 +1,1592 @@
+{
+    "objects": {
+        "14": {
+            "name": "Player",
+            "components": [
+                {
+                    "type": "wasd-controls",
+                    "wasd-controls": {
+                        "headObject": "17"
+                    }
+                }
+            ],
+            "transformation": [
+                0.490524,
+                0.0,
+                0.8714274,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                -0.8714274,
+                0.0,
+                0.490524,
+                0.0,
+                -2.6877918,
+                1.1786487,
+                1.5543167,
+                1.0
+            ]
+        },
+        "15": {
+            "name": "FloorPlane",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "7",
+                        "material": "20"
+                    }
+                }
+            ],
+            "transformation": [
+                4.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                -0.0016164,
+                -3.9999997,
+                0.0,
+                0.0,
+                3.9999997,
+                -0.0016164,
+                0.0,
+                0.0,
+                0.0,
+                1.192092895507813e-7,
+                1.0
+            ],
+            "deleted": true
+        },
+        "16": {
+            "name": "Cube",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "22"
+                    }
+                }
+            ],
+            "transformation": [
+                0.5,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.5,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.5,
+                0.0,
+                0.0,
+                0.4999999,
+                5.960464477539065e-8,
+                1.0
+            ],
+            "deleted": true
+        },
+        "17": {
+            "name": "NonVrCamera",
+            "parent": "14",
+            "components": [
+                {
+                    "type": "view"
+                },
+                {
+                    "type": "mouse-look"
+                }
+            ]
+        },
+        "18": {
+            "name": "EyeLeft",
+            "parent": "14",
+            "components": [
+                {
+                    "type": "view"
+                },
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "eye left"
+                    }
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                -1.192412781847452e-7,
+                1.0002684,
+                0.0,
+                0.0,
+                -1.0002684,
+                -1.192412781847452e-7,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "19": {
+            "name": "EyeRight",
+            "parent": "14",
+            "components": [
+                {
+                    "type": "view"
+                },
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "eye right"
+                    }
+                }
+            ],
+            "deleted": true
+        },
+        "21": {
+            "name": "Light",
+            "components": [
+                {
+                    "type": "light",
+                    "light": {
+                        "attenuation": 0.1
+                    }
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                3.0,
+                2.0,
+                1.0
+            ]
+        },
+        "23": {
+            "name": "Light.000",
+            "components": [
+                {
+                    "type": "light",
+                    "light": {
+                        "attenuation": 0.1
+                    }
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                3.0,
+                -1.0,
+                1.0
+            ]
+        },
+        "24": {
+            "name": "Cone",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "10",
+                        "material": "25"
+                    }
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                1.5,
+                1.0,
+                0.0,
+                1.0
+            ],
+            "deleted": true
+        },
+        "27": {
+            "name": "Sphere",
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "9",
+                        "material": "26"
+                    }
+                }
+            ],
+            "transformation": [
+                0.75,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.75,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.75,
+                0.0,
+                0.4999999,
+                0.75,
+                -1.25,
+                1.0
+            ],
+            "deleted": true
+        },
+        "44": {
+            "link": {
+                "name": "AR Target",
+                "file": "models\\ar-target.glb"
+            },
+            "parent": "18",
+            "components": [
+                {
+                    "mesh": {
+                        "mesh": "49",
+                        "material": "22"
+                    },
+                    "active": true
+                },
+                {
+                    "type": "hit-test-location",
+                    "active": false
+                },
+                {
+                    "type": "spawn-mesh-on-select",
+                    "spawn-mesh-on-select": {
+                        "mesh": "53",
+                        "material": "25"
+                    }
+                }
+            ],
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0000077,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0000077,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        "45": {
+            "name": "EyeRight",
+            "parent": "14",
+            "components": [
+                {
+                    "type": "view"
+                },
+                {
+                    "type": "input",
+                    "input": {
+                        "type": "eye right"
+                    }
+                }
+            ]
+        },
+        "50": {
+            "link": {
+                "name": "",
+                "file": "reticle2D.glb"
+            },
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                -1.192087637491569e-7,
+                -0.9999955,
+                0.0,
+                0.0,
+                0.9999999,
+                -1.192092895507813e-7,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "deleted": true
+        },
+        "51": {
+            "link": {
+                "name": "Mesh_Mesh_head_geo.001_lambert2SG.001",
+                "file": "reticle2D.glb"
+            },
+            "parent": "50",
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.9999995,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.9999995,
+                0.0,
+                0.0,
+                -0.0,
+                0.0,
+                1.0
+            ],
+            "deleted": true
+        },
+        "54": {
+            "link": {
+                "name": "",
+                "file": "greenmodel.glb"
+            },
+            "deleted": true
+        },
+        "55": {
+            "link": {
+                "name": "Mesh_Mesh_head_geo.001_lambert2SG.001",
+                "file": "greenmodel.glb"
+            },
+            "parent": "54",
+            "components": [
+                {
+                    "mesh": {
+                        "material": "26"
+                    }
+                }
+            ],
+            "deleted": true
+        },
+        "69": {
+            "link": {
+                "name": "Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "deleted": true
+        },
+        "70": {
+            "link": {
+                "name": "root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "69",
+            "deleted": true
+        },
+        "71": {
+            "link": {
+                "name": "GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "70",
+            "deleted": true
+        },
+        "72": {
+            "link": {
+                "name": "PantherRLegPlatform_50<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "71",
+            "deleted": true
+        },
+        "73": {
+            "link": {
+                "name": "PantherLLegPlatform_51<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "71",
+            "deleted": true
+        },
+        "74": {
+            "link": {
+                "name": "PantherRLegPlatform (1)_52<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "71",
+            "deleted": true
+        },
+        "75": {
+            "link": {
+                "name": "PantherLLegPlatform (1)_53<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "71",
+            "deleted": true
+        },
+        "76": {
+            "link": {
+                "name": "GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "71",
+            "deleted": true
+        },
+        "77": {
+            "link": {
+                "name": "GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "76",
+            "deleted": true
+        },
+        "78": {
+            "link": {
+                "name": "PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "77",
+            "deleted": true
+        },
+        "79": {
+            "link": {
+                "name": "PantherLLeg1_2<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "78",
+            "deleted": true
+        },
+        "80": {
+            "link": {
+                "name": "PantherLLeg2_3<PantherLLeg1_2<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "79",
+            "deleted": true
+        },
+        "81": {
+            "link": {
+                "name": "PantherLLegPalm_4<PantherLLeg2_3<PantherLLeg1_2<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "80",
+            "deleted": true
+        },
+        "82": {
+            "link": {
+                "name": "PantherLLegDigit01_5<PantherLLegPalm_4<PantherLLeg2_3<PantherLLeg1_2<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "81",
+            "deleted": true
+        },
+        "83": {
+            "link": {
+                "name": "PantherLLegDigit02_6<PantherLLegDigit01_5<PantherLLegPalm_4<PantherLLeg2_3<PantherLLeg1_2<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "82",
+            "deleted": true
+        },
+        "84": {
+            "link": {
+                "name": "PantherRLeg1_7<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "78",
+            "deleted": true
+        },
+        "85": {
+            "link": {
+                "name": "PantherRLeg2_8<PantherRLeg1_7<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "84",
+            "deleted": true
+        },
+        "86": {
+            "link": {
+                "name": "PantherRLegPalm_9<PantherRLeg2_8<PantherRLeg1_7<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "85",
+            "deleted": true
+        },
+        "87": {
+            "link": {
+                "name": "PantherRLegDigit01_10<PantherRLegPalm_9<PantherRLeg2_8<PantherRLeg1_7<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "86",
+            "deleted": true
+        },
+        "88": {
+            "link": {
+                "name": "PantherRLegDigit02_11<PantherRLegDigit01_10<PantherRLegPalm_9<PantherRLeg2_8<PantherRLeg1_7<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "87",
+            "deleted": true
+        },
+        "89": {
+            "link": {
+                "name": "PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "78",
+            "deleted": true
+        },
+        "90": {
+            "link": {
+                "name": "PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "89",
+            "deleted": true
+        },
+        "91": {
+            "link": {
+                "name": "PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "90",
+            "deleted": true
+        },
+        "92": {
+            "link": {
+                "name": "PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "91",
+            "deleted": true
+        },
+        "93": {
+            "link": {
+                "name": "PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "92",
+            "deleted": true
+        },
+        "94": {
+            "link": {
+                "name": "PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "93",
+            "deleted": true
+        },
+        "95": {
+            "link": {
+                "name": "PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "94",
+            "deleted": true
+        },
+        "96": {
+            "link": {
+                "name": "PantherLLegCollarbone_19<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "95",
+            "deleted": true
+        },
+        "97": {
+            "link": {
+                "name": "PantherLLeg1 (1)_20<PantherLLegCollarbone_19<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "96",
+            "deleted": true
+        },
+        "98": {
+            "link": {
+                "name": "PantherLLeg2 (1)_21<PantherLLeg1 (1)_20<PantherLLegCollarbone_19<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "97",
+            "deleted": true
+        },
+        "99": {
+            "link": {
+                "name": "PantherLLegPalm (1)_22<PantherLLeg2 (1)_21<PantherLLeg1 (1)_20<PantherLLegCollarbone_19<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "98",
+            "deleted": true
+        },
+        "100": {
+            "link": {
+                "name": "PantherLLegDigit01 (1)_23<PantherLLegPalm (1)_22<PantherLLeg2 (1)_21<PantherLLeg1 (1)_20<PantherLLegCollarbone_19<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "99",
+            "deleted": true
+        },
+        "101": {
+            "link": {
+                "name": "PantherLLegDigit02 (1)_24<PantherLLegDigit01 (1)_23<PantherLLegPalm (1)_22<PantherLLeg2 (1)_21<PantherLLeg1 (1)_20<PantherLLegCollarbone_19<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "100",
+            "deleted": true
+        },
+        "102": {
+            "link": {
+                "name": "PantherRLegShoulderblade_25<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "95",
+            "deleted": true
+        },
+        "103": {
+            "link": {
+                "name": "PantherRLeg1 (1)_26<PantherRLegShoulderblade_25<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "102",
+            "deleted": true
+        },
+        "104": {
+            "link": {
+                "name": "PantherRLeg2 (1)_27<PantherRLeg1 (1)_26<PantherRLegShoulderblade_25<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "103",
+            "deleted": true
+        },
+        "105": {
+            "link": {
+                "name": "PantherRLegPalm (1)_28<PantherRLeg2 (1)_27<PantherRLeg1 (1)_26<PantherRLegShoulderblade_25<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "104",
+            "deleted": true
+        },
+        "106": {
+            "link": {
+                "name": "PantherRLegDigit01 (1)_29<PantherRLegPalm (1)_28<PantherRLeg2 (1)_27<PantherRLeg1 (1)_26<PantherRLegShoulderblade_25<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "105",
+            "deleted": true
+        },
+        "107": {
+            "link": {
+                "name": "PantherRLegDigit02 (1)_30<PantherRLegDigit01 (1)_29<PantherRLegPalm (1)_28<PantherRLeg2 (1)_27<PantherRLeg1 (1)_26<PantherRLegShoulderblade_25<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "106",
+            "deleted": true
+        },
+        "108": {
+            "link": {
+                "name": "neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "95",
+            "deleted": true
+        },
+        "109": {
+            "link": {
+                "name": "neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "108",
+            "deleted": true
+        },
+        "110": {
+            "link": {
+                "name": "head_33<neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "109",
+            "deleted": true
+        },
+        "111": {
+            "link": {
+                "name": "jaw_34<head_33<neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "110",
+            "deleted": true
+        },
+        "112": {
+            "link": {
+                "name": "PantherL_eye_35<head_33<neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "110",
+            "deleted": true
+        },
+        "113": {
+            "link": {
+                "name": "PantherR_eye_36<head_33<neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "110",
+            "deleted": true
+        },
+        "114": {
+            "link": {
+                "name": "PantherL_eyelid_up_37<head_33<neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "110",
+            "deleted": true
+        },
+        "115": {
+            "link": {
+                "name": "PantherR_eyelid_up_38<head_33<neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "110",
+            "deleted": true
+        },
+        "116": {
+            "link": {
+                "name": "PantherL_eyelid_down_39<head_33<neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "110",
+            "deleted": true
+        },
+        "117": {
+            "link": {
+                "name": "PantherR_eyelid_down_40<head_33<neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "110",
+            "deleted": true
+        },
+        "118": {
+            "link": {
+                "name": "PantherRibcageBone001Bone001Bone001Bone008_41<head_33<neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "110",
+            "deleted": true
+        },
+        "119": {
+            "link": {
+                "name": "PantherRibcageBone001Bone001Bone001Bone008Bone001_42<PantherRibcageBone001Bone001Bone001Bone008_41<head_33<neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "118",
+            "deleted": true
+        },
+        "120": {
+            "link": {
+                "name": "PantherRibcageBone001Bone001Bone001Bone009_43<head_33<neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "110",
+            "deleted": true
+        },
+        "121": {
+            "link": {
+                "name": "PantherRibcageBone001Bone001Bone001Bone008Bone001 (1)_44<PantherRibcageBone001Bone001Bone001Bone009_43<head_33<neck_02_32<neck_01_31<PantherRibcage_18<PantherSpine6_17<PantherSpine5_16<PantherSpine4_15<PantherSpine3_14<PantherSpine2_13<PantherSpine1_12<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "120",
+            "deleted": true
+        },
+        "122": {
+            "link": {
+                "name": "PantherTail1_45<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "78",
+            "deleted": true
+        },
+        "123": {
+            "link": {
+                "name": "PantherTail2_46<PantherTail1_45<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "122",
+            "deleted": true
+        },
+        "124": {
+            "link": {
+                "name": "PantherTail3_47<PantherTail2_46<PantherTail1_45<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "123",
+            "deleted": true
+        },
+        "125": {
+            "link": {
+                "name": "PantherTail4_48<PantherTail3_47<PantherTail2_46<PantherTail1_45<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "124",
+            "deleted": true
+        },
+        "126": {
+            "link": {
+                "name": "PantherTail5_49<PantherTail4_48<PantherTail3_47<PantherTail2_46<PantherTail1_45<PantherPelvis_1<GLTF_created_0_rootJoint<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "125",
+            "deleted": true
+        },
+        "127": {
+            "link": {
+                "name": "Object_60<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "76",
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "deleted": true
+        },
+        "128": {
+            "link": {
+                "name": "Object010_0_correction<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "76",
+            "deleted": true
+        },
+        "129": {
+            "link": {
+                "name": "Object010_0<Object010_0_correction<GLTF_created_0<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            },
+            "parent": "128",
+            "deleted": true
+        },
+        "134": {
+            "link": {
+                "name": "",
+                "file": "reticle2D_new.glb"
+            },
+            "deleted": true
+        },
+        "135": {
+            "link": {
+                "name": "Mesh_Mesh_head_geo.001_lambert2SG.001",
+                "file": "reticle2D_new.glb"
+            },
+            "parent": "134",
+            "deleted": true
+        },
+        "138": {
+            "link": {
+                "name": "top",
+                "file": "reticle2D_2.glb"
+            },
+            "deleted": true
+        },
+        "139": {
+            "link": {
+                "name": "Mesh_Mesh_head_geo.001_lambert2SG.001<top",
+                "file": "reticle2D_2.glb"
+            },
+            "parent": "138",
+            "deleted": true
+        },
+        "142": {
+            "link": {
+                "name": "Mesh_Mesh_head_geo.001_lambert2SG.001",
+                "file": "greenmodel2.glb"
+            },
+            "deleted": true
+        },
+        "145": {
+            "link": {
+                "name": "Sketchfab_model",
+                "file": "reticle2dgltf\\scene.gltf"
+            },
+            "deleted": true
+        },
+        "146": {
+            "link": {
+                "name": "root<Sketchfab_model",
+                "file": "reticle2dgltf\\scene.gltf"
+            },
+            "parent": "145",
+            "deleted": true
+        },
+        "147": {
+            "link": {
+                "name": "GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "reticle2dgltf\\scene.gltf"
+            },
+            "parent": "146",
+            "deleted": true
+        },
+        "148": {
+            "link": {
+                "name": "_1<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "reticle2dgltf\\scene.gltf"
+            },
+            "parent": "147",
+            "deleted": true
+        },
+        "149": {
+            "link": {
+                "name": "Mesh_Mesh_head_geo.001_lambert2SG.001_0<_1<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "reticle2dgltf\\scene.gltf"
+            },
+            "parent": "148",
+            "deleted": true
+        },
+        "150": {
+            "link": {
+                "name": "Object_5<Mesh_Mesh_head_geo.001_lambert2SG.001_0<_1<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "reticle2dgltf\\scene.gltf"
+            },
+            "parent": "149",
+            "deleted": true
+        },
+        "153": {
+            "link": {
+                "name": "Sketchfab_model",
+                "file": "reticle2dgltf2\\scene.gltf"
+            },
+            "deleted": true
+        },
+        "154": {
+            "link": {
+                "name": "root<Sketchfab_model",
+                "file": "reticle2dgltf2\\scene.gltf"
+            },
+            "parent": "153",
+            "deleted": true
+        },
+        "155": {
+            "link": {
+                "name": "GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "reticle2dgltf2\\scene.gltf"
+            },
+            "parent": "154",
+            "deleted": true
+        },
+        "156": {
+            "link": {
+                "name": "_1<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "reticle2dgltf2\\scene.gltf"
+            },
+            "parent": "155",
+            "deleted": true
+        },
+        "157": {
+            "link": {
+                "name": "Mesh_Mesh_head_geo.001_lambert2SG.001_0<_1<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "reticle2dgltf2\\scene.gltf"
+            },
+            "parent": "156",
+            "deleted": true
+        },
+        "158": {
+            "link": {
+                "name": "Object_5<Mesh_Mesh_head_geo.001_lambert2SG.001_0<_1<GLTF_SceneRootNode<root<Sketchfab_model",
+                "file": "reticle2dgltf2\\scene.gltf"
+            },
+            "parent": "157",
+            "transformation": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.9999996,
+                -0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.9999996,
+                0.0,
+                -3.888271180585434e-7,
+                -0.0,
+                0.0,
+                1.0
+            ],
+            "deleted": true
+        },
+        "159": {
+            "name": "Mesh",
+            "parent": null,
+            "components": [
+                {
+                    "type": "mesh",
+                    "mesh": {
+                        "mesh": "8",
+                        "material": "26"
+                    }
+                }
+            ],
+            "transformation": [
+                0.2,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                0.2,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.2,
+                0.0,
+                0.7531239,
+                -1.1920928955078128e-7,
+                2.384185791015625e-7,
+                1.0
+            ],
+            "deleted": true
+        }
+    },
+    "meshes": {
+        "7": {
+            "link": {
+                "name": "PrimitivePlane",
+                "file": "default"
+            }
+        },
+        "8": {
+            "link": {
+                "name": "PrimitiveCube",
+                "file": "default"
+            }
+        },
+        "9": {
+            "link": {
+                "name": "PrimitiveSphere",
+                "file": "default"
+            }
+        },
+        "10": {
+            "link": {
+                "name": "PrimitiveCone",
+                "file": "default"
+            }
+        },
+        "11": {
+            "link": {
+                "name": "PrimitiveCylinder",
+                "file": "default"
+            }
+        },
+        "12": {
+            "link": {
+                "name": "PrimitiveCircle",
+                "file": "default"
+            }
+        },
+        "43": {
+            "link": {
+                "name": "AR Target Mesh",
+                "file": "models\\ar-target.glb"
+            }
+        },
+        "49": {
+            "link": {
+                "name": "mesh_0",
+                "file": "reticle2D.glb"
+            },
+            "simplify": false,
+            "importScaling": 0.002
+        },
+        "53": {
+            "link": {
+                "name": "mesh_0",
+                "file": "greenmodel.glb"
+            },
+            "importScaling": 0.002
+        }
+    },
+    "textures": {
+        "t0": {
+            "link": {
+                "name": "DefaultFont",
+                "file": "default"
+            },
+            "name": "DefaultFont"
+        },
+        "59": {
+            "link": {
+                "name": "texture_0",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            }
+        },
+        "60": {
+            "link": {
+                "name": "texture_1",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            }
+        },
+        "61": {
+            "link": {
+                "name": "texture_2",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            }
+        }
+    },
+    "images": {
+        "f0": {
+            "link": {
+                "name": "DefaultFontImage",
+                "file": "default"
+            }
+        },
+        "56": {
+            "link": {
+                "name": "image_0",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            }
+        },
+        "57": {
+            "link": {
+                "name": "image_1",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            }
+        },
+        "58": {
+            "link": {
+                "name": "image_2",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            }
+        }
+    },
+    "materials": {
+        "DefaultFontMaterial": {
+            "link": {
+                "name": "DefaultFontMaterial",
+                "file": "default"
+            }
+        },
+        "20": {
+            "name": "White",
+            "shader": "Phong",
+            "Phong": {
+                "specularColor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.3921568
+                ],
+                "shininess": 1,
+                "ambientColor": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.3921568
+                ],
+                "diffuseColor": [
+                    0.5019608,
+                    0.5019608,
+                    0.5019608,
+                    0.3921568
+                ],
+                "fogColor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    0.3921568
+                ]
+            }
+        },
+        "22": {
+            "name": "Pink",
+            "Phong": {
+                "diffuseColor": [
+                    0.9137254,
+                    0.1137254,
+                    0.1764705,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999899930335233e-7,
+                    9.999911299019005e-7,
+                    9.999999974752428e-7,
+                    1.0
+                ],
+                "shininess": 10,
+                "ambientColor": [
+                    0.9137254,
+                    0.1137254,
+                    0.1764705,
+                    1.0
+                ]
+            }
+        },
+        "25": {
+            "name": "Yellow",
+            "Phong": {
+                "diffuseColor": [
+                    0.2941176,
+                    1.0,
+                    0.0,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752428e-7,
+                    9.999899930335233e-7,
+                    9.999899930335233e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.2941176,
+                    1.0,
+                    0.0,
+                    1.0
+                ]
+            }
+        },
+        "26": {
+            "name": "Green",
+            "Phong": {
+                "diffuseColor": [
+                    0.1529411,
+                    0.7882353,
+                    0.5411764,
+                    1.0
+                ],
+                "specularColor": [
+                    9.999999974752428e-7,
+                    9.999899930335233e-7,
+                    9.999899930335233e-7,
+                    1.0
+                ],
+                "ambientColor": [
+                    0.0,
+                    0.2352941,
+                    0.145098,
+                    0.0431372
+                ]
+            }
+        },
+        "42": {
+            "link": {
+                "name": "AR Target Material",
+                "file": "models\\ar-target.glb"
+            },
+            "pipeline": "39",
+            "Phong": {
+                "ambientColor": [
+                    0.5921568,
+                    0.5921509,
+                    0.5921509,
+                    1.0
+                ],
+                "diffuseColor": [
+                    1.0,
+                    0.9999899,
+                    0.9999899,
+                    1.0
+                ]
+            }
+        },
+        "48": {
+            "link": {
+                "name": "lambert2SG.001",
+                "file": "reticle2D.glb"
+            }
+        },
+        "52": {
+            "link": {
+                "name": "lambert2SG.001",
+                "file": "greenmodel.glb"
+            }
+        },
+        "62": {
+            "link": {
+                "name": "Material_25",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            }
+        },
+        "132": {
+            "link": {
+                "name": "lambert2SG.001",
+                "file": "reticle2D_new.glb"
+            }
+        },
+        "136": {
+            "link": {
+                "name": "lambert2SG.001",
+                "file": "reticle2D_2.glb"
+            }
+        },
+        "140": {
+            "link": {
+                "name": "lambert2SG.001",
+                "file": "greenmodel2.glb"
+            }
+        },
+        "143": {
+            "link": {
+                "name": "lambert2SG.001",
+                "file": "reticle2dgltf\\scene.gltf"
+            }
+        },
+        "151": {
+            "link": {
+                "name": "lambert2SG.001",
+                "file": "reticle2dgltf2\\scene.gltf"
+            }
+        }
+    },
+    "shaders": {
+        "1": {
+            "link": {
+                "name": "DistanceFieldVector Textured",
+                "file": "default"
+            }
+        },
+        "2": {
+            "link": {
+                "name": "Flat",
+                "file": "default"
+            }
+        },
+        "3": {
+            "link": {
+                "name": "Flat Textured",
+                "file": "default"
+            }
+        },
+        "4": {
+            "link": {
+                "name": "MeshVisualizer",
+                "file": "default"
+            }
+        },
+        "5": {
+            "link": {
+                "name": "Phong",
+                "file": "default"
+            }
+        },
+        "6": {
+            "link": {
+                "name": "Phong Textured",
+                "file": "default"
+            }
+        },
+        "28": {
+            "link": {
+                "name": "Dynamic",
+                "file": "default"
+            }
+        },
+        "29": {
+            "link": {
+                "name": "Particle Textured",
+                "file": "default"
+            }
+        },
+        "30": {
+            "link": {
+                "name": "Skinning",
+                "file": "default"
+            }
+        },
+        "31": {
+            "link": {
+                "name": "Static",
+                "file": "default"
+            }
+        },
+        "32": {
+            "link": {
+                "name": "DistanceFieldVector",
+                "file": "default"
+            }
+        },
+        "37": {
+            "link": {
+                "name": "Particle",
+                "file": "default"
+            }
+        },
+        "46": {
+            "link": {
+                "name": "Depth",
+                "file": "default"
+            }
+        }
+    },
+    "settings": {
+        "project": {
+            "name": "MyWonderland",
+            "version": [
+                0,
+                8,
+                10
+            ]
+        },
+        "vr": {
+            "leftEyeObject": "18",
+            "rightEyeObject": "45",
+            "enable": false
+        },
+        "scripting": {
+            "sourcePaths": [
+                "/js/editor-components-bundle.js",
+                "js/"
+            ]
+        },
+        "ar": {
+            "framework": "webxr"
+        },
+        "rendering": {
+            "clearColor": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ],
+            "bloom": {
+                "enabled": false
+            }
+        },
+        "editor": {
+            "serverPort": 5503
+        }
+    },
+    "animations": {
+        "130": {
+            "link": {
+                "name": "All Animations",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            }
+        }
+    },
+    "skins": {
+        "68": {
+            "link": {
+                "name": "skin_3",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            }
+        },
+        "131": {
+            "link": {
+                "name": "skin_4",
+                "file": "norwegianforest_cat_non-commercial\\scene.gltf"
+            }
+        }
+    },
+    "pipelines": {
+        "33": {
+            "link": {
+                "name": "DistanceFieldVector",
+                "file": "default"
+            }
+        },
+        "34": {
+            "link": {
+                "name": "Flat Opaque",
+                "file": "default"
+            }
+        },
+        "35": {
+            "link": {
+                "name": "Flat Opaque Textured",
+                "file": "default"
+            }
+        },
+        "36": {
+            "link": {
+                "name": "MeshVisualizer",
+                "file": "default"
+            }
+        },
+        "37": {
+            "link": {
+                "name": "Phong Opaque",
+                "file": "default"
+            }
+        },
+        "38": {
+            "link": {
+                "name": "Phong Opaque Textured",
+                "file": "default"
+            }
+        },
+        "39": {
+            "link": {
+                "name": "Foliage",
+                "file": "default"
+            }
+        },
+        "40": {
+            "link": {
+                "name": "Particle",
+                "file": "default"
+            }
+        },
+        "47": {
+            "link": {
+                "name": "Depth",
+                "file": "default"
+            }
+        }
+    },
+    "files": [
+        "models/ar-target.glb",
+        "reticle2D.glb",
+        "greenmodel.glb",
+        "norwegianforest_cat_non-commercial/scene.gltf",
+        "reticle2D_new.glb",
+        "reticle2D_2.glb",
+        "greenmodel2.glb",
+        "reticle2dgltf/scene.gltf",
+        "reticle2dgltf2/scene.gltf"
+    ]
+}
