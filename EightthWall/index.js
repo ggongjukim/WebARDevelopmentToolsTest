@@ -91,7 +91,7 @@ const placegroundScenePipelineModule = () => {
   }
   const placemodel = () => {
     if(!isModel){
-      scene.add(ThreeDModel);
+      XR8.Threejs.xrScene().scene.add(ThreeDModel);
       reticle.position.copy(reticle.position);
       ThreeDModel.position.copy(reticle.position);
       modelLoadingEnd = performance.now();
