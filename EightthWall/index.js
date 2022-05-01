@@ -157,7 +157,7 @@ const placegroundScenePipelineModule = () => {
         "../reticle2D.glb",  // resource URL.
         (gltf) => {
           reticle = gltf.scene;
-          reticle.scale.set(0.002,0.002,0.002);
+          reticle.scale.set(0.02,0.02,0.02);
           scene.add(reticle);
         })
 
