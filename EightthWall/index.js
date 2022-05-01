@@ -58,7 +58,7 @@ const placegroundScenePipelineModule = () => {
     model.scene.rotation.set(0.0, yDegrees, 0.0)
     model.scene.position.set(pointX, 0.0, pointZ)
     model.scene.scale.set(scale.x, scale.y, scale.z)
-    model.scene.children[0].children[0].children[0].castShadow = true
+    // model.scene.children[0].children[0].children[0].castShadow = true
     XR8.Threejs.xrScene().scene.add(model.scene)
 
     new TWEEN.Tween(scale)
