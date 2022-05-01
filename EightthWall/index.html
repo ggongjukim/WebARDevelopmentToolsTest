@@ -1,13 +1,18 @@
-
 <!doctype html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=0.75, user-scalable=yes">
-    <title>8th Wall Web: three.js1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>8th Wall Web: three.js</title>
     <link rel="stylesheet" type="text/css" href="index.css">
 
     <!-- THREE.js must be supplied -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/93/three.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
+
+    <!-- Required to load glTF (.gltf or .glb) models -->
+    <script src="//cdn.rawgit.com/mrdoob/three.js/r123/examples/js/loaders/GLTFLoader.js"></script>
+
+    <!-- Javascript tweening engine -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
 
     <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
          See github.com/8thwall/web/tree/master/xrextras -->
@@ -21,14 +26,5 @@
   </head>
 
   <body>
-    <!-- The AR canvas -->
-    <!-- <canvas id="camerafeed" width="480" height="640"></canvas> -->
-    <canvas id="camerafeed" width="480" height="640"></canvas>
-
-
-    <!-- A button to pause the camera feed. -->
-    <div style="width: 480px;">
-      <button id="pause" style="float: right;">PAUSE</button>
-    </div>
-  </body>
-</html>
+    <canvas id="camerafeed"></canvas>
+  </bod
