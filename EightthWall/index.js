@@ -144,13 +144,13 @@ const placegroundScenePipelineModule = () => {
       // Add objects to the scene and set starting camera position.
       initXrScene({scene, camera, renderer})
 
-      // canvas.addEventListener('touchstart', placeObjectTouchHandler, true)  // Add touch listener.
+      canvas.addEventListener('touchstart', placeObjectTouchHandler, true)  // Add touch listener.
 
-      // // prevent scroll/pinch gestures on canvas
-      // canvas.addEventListener('touchmove', (event) => {
-      //   event.preventDefault()
-      // })
-      hittest();
+      // prevent scroll/pinch gestures on canvas
+      canvas.addEventListener('touchmove', (event) => {
+        event.preventDefault()
+      })
+      // hittest();
 
       // Enable TWEEN animations.
       const animate = (time) => {
