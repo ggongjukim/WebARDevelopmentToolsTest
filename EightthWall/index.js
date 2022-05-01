@@ -58,7 +58,7 @@ const placegroundScenePipelineModule = () => {
     model.scene.rotation.set(0.0, yDegrees, 0.0)
     model.scene.position.set(pointX, 0.0, pointZ)
     model.scene.scale.set(scale.x, scale.y, scale.z)
-    model.scene.children[0].children[0].children[0].castShadow = true
+    // model.scene.children[0].children[0].children[0].castShadow = true
     XR8.Threejs.xrScene().scene.add(model.scene)
 
     new TWEEN.Tween(scale)
@@ -108,7 +108,23 @@ const placegroundScenePipelineModule = () => {
       placeObject(intersects[0].point.x, intersects[0].point.z)
     }
   }
+  const hittest = (time, frame) => {
+    console.log("hittest중");
+    requestAnimationFrame(hittest);
+    // If the canvas is tapped with one finger and hits the "surface", spawn an object.
+    const { camera } = XR8.Threejs.xrScene()
 
+    // calculate tap position in normalized device coordinates (-1 to +1) for both components.
+    tapPosition.x = 0 
+    tapPosition.y = 0
+    raycaster.setFromCamera(tapPosition, camera)
+
+    const intersects = raycaster.intersectObject(surface)
+    if (intersects.length === 1 && intersects[0].object === surface) {
+      placeObject(intersects[0].point.x, intersects[0].point.z)
+    }
+
+  }
   return {
     // Pipeline modules need a name. It can be whatever you want but must be unique within your app.
     name: 'placeground',
@@ -122,12 +138,14 @@ const placegroundScenePipelineModule = () => {
       // Add objects to the scene and set starting camera position.
       initXrScene({scene, camera, renderer})
 
-      canvas.addEventListener('touchstart', placeObjectTouchHandler, true)  // Add touch listener.
+      // canvas.addEventListener('touchstart', placeObjectTouchHandler, true)  // Add touch listener.
 
-      // prevent scroll/pinch gestures on canvas
-      canvas.addEventListener('touchmove', (event) => {
-        event.preventDefault()
-      })
+      // // prevent scroll/pinch gestures on canvas
+      // canvas.addEventListener('touchmove', (event) => {
+      //   event.preventDefault()
+      // })
+      //ggongjukim
+      hittest();
 
       // Enable TWEEN animations.
       const animate = (time) => {
