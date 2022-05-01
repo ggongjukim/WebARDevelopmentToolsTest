@@ -113,7 +113,7 @@ const placegroundScenePipelineModule = () => {
   }
 
   const hittest = (time,frame) =>{
-    console.log("hittest 진행중");
+    // console.log("hittest 진행중");
     requestAnimationFrame(hittest);
 
     const {camera} = XR8.Threejs.xrScene()
