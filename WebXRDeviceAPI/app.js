@@ -197,7 +197,8 @@ class App {
       //
       //   /** Conduct hit test. */
       const hitTestResults = frame.getHitTestResults(this.hitTestSource);
-      //
+      console.log("hittest중");
+
       //   /** If we have results, consider the environment stabilized. */
       if (this.reticle && !ismodelPlaced && this.ThreeDModel) {
         if (!firstAnchor) {//처음 앵커가 로드 될때

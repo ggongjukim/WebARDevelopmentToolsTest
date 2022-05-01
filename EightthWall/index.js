@@ -75,7 +75,11 @@ const placegroundScenePipelineModule = () => {
     loader.load(
       modelFile,  // resource URL.
       (gltf) => {
-        animateIn(gltf, pointX, pointZ, Math.random() * 360)
+        // animateIn(gltf, pointX, pointZ, Math.random() * 360)
+        model.scene.position.set(pointX, 0.0, pointZ)
+        model.scene.scale.set(0.002, 0.002, 0.002)
+        XR8.Threejs.xrScene().scene.add(model.scene)
+
       }
     )
   }
