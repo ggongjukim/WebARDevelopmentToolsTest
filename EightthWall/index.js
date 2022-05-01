@@ -8,7 +8,7 @@
 const placegroundScenePipelineModule = () => {
   const modelFile = '../reticle2D.glb'                            // 3D model to spawn at tap
   const startScale = new THREE.Vector3(0.01, 0.01, 0.01)  // Initial scale value for our model
-  const endScale = new THREE.Vector3(2, 2, 2)             // Ending scale value for our model
+  const endScale = new THREE.Vector3(0.002, 0.002, 0.002)             // Ending scale value for our model
   const animationMillis = 750                             // Animate over 0.75 seconds
 
   const raycaster = new THREE.Raycaster()
