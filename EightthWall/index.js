@@ -10,21 +10,21 @@ const infotime = document.getElementById("total-time");
 const infostatus = document.getElementById("status");
 // console.dir(infostatus);
 
-window.onload = function () {
+// window.onload = function () {
 
-  setTimeout(function () {
+//   setTimeout(function () {
 
-    // var t = performance.timing.loadEventEnd - performance.timing.responseEnd;
-    var now = new Date().getTime();
-    var page_load_time = now - performance.timing.navigationStart;
-    infostatus.innerHTML = "website-loading-time";
-    infotime.innerHTML = page_load_time + 'ms';
-    console.log("website-loading-time",page_load_time);
+//     // var t = performance.timing.loadEventEnd - performance.timing.responseEnd;
+//     var now = new Date().getTime();
+//     var page_load_time = now - performance.timing.navigationStart;
+//     infostatus.innerHTML = "website-loading-time";
+//     infotime.innerHTML = page_load_time + 'ms';
+//     console.log("website-loading-time",page_load_time);
 
 
-  }, 0);
+//   }, 0);
 
-}
+// }
 //frame 세기
 
 var before, now, fps;
@@ -193,7 +193,7 @@ const placegroundScenePipelineModule = () => {
     const intersects = raycaster.intersectObject(surface)
     if (intersects.length === 1 && intersects[0].object === surface) {
       if (!isModel) {
-        console.log("hittest중 hittest결과 있음");
+        console.log("hittest중 hittest결과 있음!");
         reticle.position.set(intersects[0].point.x, 0.0, intersects[0].point.z)
       }
       if (!firstAnchor) {
@@ -288,4 +288,17 @@ const onxrloaded = () => {
 
 // Show loading screen before the full XR library has been loaded.
 const load = () => { XRExtras.Loading.showLoading({ onxrloaded }) }
-window.onload = () => { window.XRExtras ? load() : window.addEventListener('xrextrasloaded', load) }
+window.onload = () => { 
+  window.XRExtras ? load() : window.addEventListener('xrextrasloaded', load) 
+  setTimeout(function () {
+
+    // var t = performance.timing.loadEventEnd - performance.timing.responseEnd;
+    var now = new Date().getTime();
+    var page_load_time = now - performance.timing.navigationStart;
+    infostatus.innerHTML = "website-loading-time";
+    infotime.innerHTML = page_load_time + 'ms';
+    console.log("website-loading-time",page_load_time);
+
+
+  }, 0);
+}
