@@ -77,8 +77,8 @@ const placegroundScenePipelineModule = () => {
       modelFile,  // resource URL.
       (gltf) => {
         // animateIn(gltf, pointX, pointZ, Math.random() * 360)
-        model.scene.position.set(pointX, 0.0, pointZ)
-        model.scene.scale.set(0.002, 0.002, 0.002)
+        gltf.scene.position.set(pointX, 0.0, pointZ)
+        gltf.scene.scale.set(0.002, 0.002, 0.002)
         XR8.Threejs.xrScene().scene.add(model.scene)
 
       }
@@ -114,7 +114,7 @@ const placegroundScenePipelineModule = () => {
     }
   }
   const hittest = (time, frame) => {
-    console.log("hittest중");
+    console.log("hittest중1");
     requestAnimationFrame(hittest);
     // If the canvas is tapped with one finger and hits the "surface", spawn an object.
     const { camera } = XR8.Threejs.xrScene()
@@ -127,7 +127,7 @@ const placegroundScenePipelineModule = () => {
     const intersects = raycaster.intersectObject(surface)
     if (intersects.length === 1 && intersects[0].object === surface) {
       // placeObject(intersects[0].point.x, intersects[0].point.z)
-      reticle.position(intersects[0].point.x,0.0, intersects[0].point.z)
+      reticle.position.set(intersects[0].point.x,0.0, intersects[0].point.z)
     }
 
   }
