@@ -109,7 +109,7 @@ scene.add(trackerGroup);
 const box = new GLTFLoader();
 box.load("../reticle2D.glb", (gltf)=> {
     reticle = gltf.scene;
-    reticle.scale.set(0.02,0.02,0.02);
+    reticle.scale.set(0.002,0.002,0.002);
     trackerGroup.add(reticle);
     if(!firstAnchor){
         infostatus.innerHTML =  "anchor-loading";
@@ -134,7 +134,7 @@ ThreeDModelgltfLoader.load("../greenmodel.glb", (gltf) => {
     ThreeDModel = gltf.scene;
 
     //크기 조정
-    originSize = 0.02;
+    originSize = 0.002;
     ThreeDModel.scale.set(originSize, originSize, originSize);
 
     // scene.add(ThreeDModel);//ver2

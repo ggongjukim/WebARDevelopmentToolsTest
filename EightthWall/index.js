@@ -241,14 +241,14 @@ const placegroundScenePipelineModule = () => {
         "../reticle2D.glb",  // resource URL.
         (gltf) => {
           reticle = gltf.scene;
-          reticle.scale.set(0.02, 0.02, 0.02);
+          reticle.scale.set(0.002, 0.002, 0.002);
           scene.add(reticle);
         })
       loader.load(
         "../greenmodel.glb",  // resource URL.
         (gltf) => {
           ThreeDModel = gltf.scene;
-          ThreeDModel.scale.set(0.02, 0.02, 0.02);
+          ThreeDModel.scale.set(0.002, 0.002, 0.002);
           // scene.add(ThreeDModel);
         })
       // Enable TWEEN animations.
