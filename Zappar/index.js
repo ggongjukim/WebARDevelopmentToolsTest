@@ -109,7 +109,7 @@ scene.add(trackerGroup);
 const box = new GLTFLoader();
 box.load("../reticle2D.glb", (gltf)=> {
     reticle = gltf.scene;
-    reticle.scale.set(0.002,0.002,0.002);
+    reticle.scale.set(0.02,0.02,0.02);
     trackerGroup.add(reticle);
     if(!firstAnchor){
         infostatus.innerHTML =  "anchor-loading";
