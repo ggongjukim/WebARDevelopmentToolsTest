@@ -18,6 +18,7 @@ window.onload = function(){
         var page_load_time = now - performance.timing.navigationStart;
         infostatus.innerHTML  = "website-loading-time";
         infotime.innerHTML = page_load_time+ 'ms';
+        console.log("website-loading-time",page_load_time);
 
 
     }, 0);
@@ -133,7 +134,7 @@ ThreeDModelgltfLoader.load("../greenmodel.glb", (gltf) => {
     ThreeDModel = gltf.scene;
 
     //크기 조정
-    originSize = 0.002;
+    originSize = 0.02;
     ThreeDModel.scale.set(originSize, originSize, originSize);
 
     // scene.add(ThreeDModel);//ver2
