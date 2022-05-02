@@ -55,6 +55,7 @@ requestAnimationFrame(
 );
 document.getElementById("fpsbutton").addEventListener('click', () => { // 놓는 버튼
   console.log(resultfps)
+  alert(resultfps)
 });
 const placegroundScenePipelineModule = () => {
   var reticle, ThreeDModel;
