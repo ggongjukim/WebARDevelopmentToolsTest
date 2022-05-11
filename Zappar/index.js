@@ -89,7 +89,7 @@ scene.add(directionalLight);
 ZapparThree.permissionRequestUI().then((granted) => {
 
     if (granted) {//허용하면 카메라 켜짐
-        document.getElementById("initializing").style.display = 'block';
+        // document.getElementById("initializing").style.display = 'block';
         console.log("카메라 허용");
         camera.start();
         //페이지 로딩시간 시간재기
