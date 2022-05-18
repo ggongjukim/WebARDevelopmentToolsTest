@@ -108,40 +108,40 @@ scene.add(trackerGroup);
 // Add some content
 
 
-// const box = new GLTFLoader();
-// box.load("../reticle2D.glb", (gltf)=> {
-//     reticle = gltf.scene;
-//     reticle.scale.set(0.004,0.004,0.004);
-//     trackerGroup.add(reticle);
-//     if(!firstAnchor){
-//         infostatus.innerHTML =  "anchor-loading";
-//         anchorLoadingEnd = performance.now();
-//         infotime.innerHTML = anchorLoadingEnd-anchorLoadingStart+ 'ms';
-//         firstAnchor=true;
-//     }
-//     // trackerGroup.add(gltf.scene);
-//     document.getElementById("initializing").style.display = 'none';
-//     document.getElementById("transform-controls").style.display = 'block';
+const box = new GLTFLoader();
+box.load("../reticle2D.glb", (gltf)=> {
+    reticle = gltf.scene;
+    reticle.scale.set(0.004,0.004,0.004);
+    trackerGroup.add(reticle);
+    if(!firstAnchor){
+        infostatus.innerHTML =  "anchor-loading";
+        anchorLoadingEnd = performance.now();
+        infotime.innerHTML = anchorLoadingEnd-anchorLoadingStart+ 'ms';
+        firstAnchor=true;
+    }
+    // trackerGroup.add(gltf.scene);
+    document.getElementById("initializing").style.display = 'none';
+    document.getElementById("transform-controls").style.display = 'block';
 
-//     document.getElementById("tap-to-place").addEventListener('click', () => { // 놓는 버튼
-//         modelLoadingStart = performance.now(); //모델 로드 시작
-//         infotime.innerHTML= '00ms';
-//         placemodel();
-//         hasPlaced = true;
-//     });
+    document.getElementById("tap-to-place").addEventListener('click', () => { // 놓는 버튼
+        modelLoadingStart = performance.now(); //모델 로드 시작
+        infotime.innerHTML= '00ms';
+        placemodel();
+        hasPlaced = true;
+    });
 
-// });
-// const ThreeDModelgltfLoader = new GLTFLoader();
-// ThreeDModelgltfLoader.load("../greenmodel.glb", (gltf) => {
-//     ThreeDModel = gltf.scene;
+});
+const ThreeDModelgltfLoader = new GLTFLoader();
+ThreeDModelgltfLoader.load("../greenmodel.glb", (gltf) => {
+    ThreeDModel = gltf.scene;
 
-//     //크기 조정
-//     originSize = 0.004;
-//     ThreeDModel.scale.set(originSize, originSize, originSize);
+    //크기 조정
+    originSize = 0.004;
+    ThreeDModel.scale.set(originSize, originSize, originSize);
 
-//     // scene.add(ThreeDModel);//ver2
+    // scene.add(ThreeDModel);//ver2
 
-// });
+});
 
 
 // Set up our render loop
