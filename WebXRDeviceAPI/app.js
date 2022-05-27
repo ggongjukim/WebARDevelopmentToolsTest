@@ -265,7 +265,7 @@ class App {
         // });
 
         //크기 조정
-        originSize = 0.002;
+        originSize = 1;//0.002;
         this.ThreeDModel.scale.set(originSize, originSize, originSize);
 
         this.scene.add(this.ThreeDModel);//ver2
