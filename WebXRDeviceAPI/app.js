@@ -254,7 +254,7 @@ class App {
     this.reticle = new Reticle();
     this.scene.add(this.reticle);
     const ThreeDModelgltfLoader = new THREE.GLTFLoader();
-    ThreeDModelgltfLoader.load("../greenmodel.glb", (gltf) => {
+    ThreeDModelgltfLoader.load("../Unity/StreamingAssets/greenmodel.glb", (gltf) => {//../greenmodel.glb", (gltf) => {
         this.ThreeDModel = gltf.scene;
         // ThreeDModel.traverse((child) => {
         //     if (child.material) {
